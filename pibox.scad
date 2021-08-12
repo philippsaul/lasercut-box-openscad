@@ -17,6 +17,9 @@ difference(){
     // power connector
     translate([60,20+(23.5)/2]) circle(d=11.7);
 
+    // extruder motor connector circle
+    translate([85,20+(23.5)/2]) circle(d=20);
+
     // pi 3b+
     translate([170+20, 100+20]) circle(d=3.5);
     translate([170+20, 100+20+58]) circle(d=3.5);

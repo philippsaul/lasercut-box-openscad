@@ -24,7 +24,7 @@ module box(width, height, depth, thickness,
            kerf = 0.0,
            labels = false,
            explode = 0,
-           spacing = 0)
+           spacing = 0.1)
 {
   w = inner ? width + 2 * thickness : width;
   h = inner ? height + 2 * thickness : height;
@@ -45,7 +45,7 @@ module box(width, height, depth, thickness,
   // 2D panels with finger cuts
   module left() { cut_left() panel2d(d, h); }
   module right() { cut_right() panel2d(d, h); }
-  module top() { 
+  module top() {
     if (ears_radius > 0) {
       difference() {
         panel2d(w, d);
@@ -58,7 +58,7 @@ module box(width, height, depth, thickness,
   }
   module bottom() { cut_bottom() panel2d(w, d); }
   module ears_outer(is_front) {
-    translate([is_front ? 0 : w, h]) 
+    translate([is_front ? 0 : w, h])
       circle(ears_radius, [0, 0]);
   }
   module ears_inner(is_front) {
@@ -89,7 +89,7 @@ module box(width, height, depth, thickness,
     cut_front() difference() {
       union()
       {
-        panel2d(w, h); 
+        panel2d(w, h);
         if (ears_radius > 0)
           ears_outer(true);
       }
